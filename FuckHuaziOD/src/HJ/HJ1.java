@@ -26,23 +26,26 @@ public class HJ1 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         int len = 0;
-
         while (in.hasNext()) {
             String a = in.nextLine().trim();
             int l = a.length() - 1;
-            for (int i = l; i > 0; i--) {
+            for (int i = l; i >= 0; i--) {
 //                System.out.println("l = " + l);
                 if (a.charAt(i) != ' ') {
                     len++;
-                } else if (len > 0) {
+//                    System.out.println("len= " + len);
+                    if (len == a.length()) {
+                        System.out.println(len);
+                        len = 0;
+                        break;
+                    }
+                } else if ( len > 0) {
                     System.out.println(len);
                     len = 0;
                     break;
                 }
             }
         }
-
     }
 }
