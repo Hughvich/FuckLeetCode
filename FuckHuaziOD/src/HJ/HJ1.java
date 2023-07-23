@@ -28,19 +28,20 @@ public class HJ1 {
         Scanner in = new Scanner(System.in);
         int len = 0;
         while (in.hasNext()) {
-            String a = in.nextLine().trim();
+            String a = in.nextLine().trim(); //切除首尾空格
             int l = a.length() - 1;
             for (int i = l; i >= 0; i--) {
 //                System.out.println("l = " + l);
                 if (a.charAt(i) != ' ') {
                     len++;
 //                    System.out.println("len= " + len);
+                    // 边界情况：如果只有一个字符串（没有空格）
                     if (len == a.length()) {
                         System.out.println(len);
                         len = 0;
                         break;
                     }
-                } else if ( len > 0) {
+                } else if (len > 0) {
                     System.out.println(len);
                     len = 0;
                     break;
