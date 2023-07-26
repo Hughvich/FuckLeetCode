@@ -46,10 +46,11 @@ import java.util.Arrays;
  * 最后返回的s，要+1才是数组长度，因为是0-base
  */
 //********排序数组，所有的重复项肯定都在一起，不可能分布在数组各个角落********
-public class removeDuplicates26 {
+public class removeDuplicates26_DoublePointer {
     public static int removeDup(int[] nums) {
         int s = 0;
         for (int f = 0; f < nums.length; f++) {
+            // 核心逻辑：如果快指针f和慢指针s不等，f元素给s后一位
             if (nums[f] != nums[s]) {
                 nums[s + 1] = nums[f]; //s后一个为要覆盖的第一个元素
                 s++;

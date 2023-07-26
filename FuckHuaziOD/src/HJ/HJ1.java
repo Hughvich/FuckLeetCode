@@ -20,6 +20,11 @@ import java.util.Scanner;
  * 8
  * 说明：
  * 最后一个单词为nowcoder，长度为8
+ *
+ * 思路：
+ * 用charAt和空格比较，如果是空格就到了头，否则就++记数
+ * 要注意只有一个字符串的边界情况
+ *
  */
 
 public class HJ1 {
