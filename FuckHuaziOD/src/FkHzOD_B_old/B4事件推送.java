@@ -49,7 +49,7 @@ import java.util.Scanner;
  *
  * 思路：循环遍历两个数组判定以上4个条件（第4个已经满足
  */
-public class B4 {
+public class B4事件推送 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int m = in.nextInt();

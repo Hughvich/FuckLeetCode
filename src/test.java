@@ -1,26 +1,22 @@
 import java.io.BufferedInputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class test {
 
     public static void main(String[] args) {
-//        Scanner in = new Scanner(System.in);
-//        while (in.hasNextLine()) {
-//
-//        }
+        Scanner in = new Scanner(System.in);
+        int N = Integer.parseInt(in.nextLine());
+//        List<Integer> id = Arrays.stream(in.nextLine().split(",")).map(Integer::parseInt).toList();
+        in.useDelimiter("[,\n]");
+//        in.useDelimiter(",");
 
         List<Integer> a = new ArrayList<>();
-        a.add(234);
-        a.add(12);
-        a.add(56);
-        a.add(7878);
+        for (int i = 0; i < N; i++) {
+            a.add(in.nextInt());
+        }
 
-        a.sort(Comparator.comparingInt(o -> o));
-        a.remove(0);
+        a.stream().toString().replaceAll("^\\[+|\\]+$", "");
         System.out.println(a);
     }
 }

@@ -38,7 +38,7 @@ import java.util.*;
  *
  *
  */
-public class B1 {
+public class B1德州扑克 {
 
     public static void main(String[] args) {
         // 把输入的5组数加入到二维数组inputCards中

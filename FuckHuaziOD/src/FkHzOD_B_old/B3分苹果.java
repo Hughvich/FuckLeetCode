@@ -39,7 +39,7 @@ import java.util.Scanner;
  * 非~
  *
  */
-public class B3 {
+public class B3分苹果 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 注意接收int的方法

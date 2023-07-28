@@ -15,7 +15,7 @@ import java.util.Scanner;
  * （两个子序列，取较大）
  *
  */
-public class B2 {
+public class B2字符串子序列II {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String target = in.nextLine();
