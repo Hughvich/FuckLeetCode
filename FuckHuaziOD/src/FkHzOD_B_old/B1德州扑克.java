@@ -102,7 +102,7 @@ public class B1德州扑克 {
 
         // 按照cards对nums排序？？？
 //        Collections.sort(nums, Comparator.comparingInt(cards::get));
-        Collections.sort(nums, (a, b) -> cards.get(a) - cards.get(b));
+        nums.sort((a, b) -> cards.get(a) - cards.get(b));
         System.out.println("nums: " + nums);
 
         // 核心逻辑：检查6种牌型
