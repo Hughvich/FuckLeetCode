@@ -91,14 +91,18 @@
 Integer.parInt(String.valueOf(x))
   或者 str.charAt(i) - '0'
   
-### B11 （先空着
+### B11 （及以后的200分 先空着
 
 ### B12 单词重量
 - 还是用到保留小数的处理，DecimalFormat可以四舍五入处理任何格式（double，float之类）
 
-### B13 - 15 （先空着
 
 ### B16 太阳能板最大面积
 - 输入数据在多组量比较大的时候，用BufferedInputStream更快：
   Scanner in = new Scanner(new BufferedInputStream(System.in));
 - 三目运算符简化：ip.get(left) < ip.get(right) ? ip.get(left++) : ip.get(right--);
+
+### B17 整数对最小和
+- arrays数组用IntStream求和：int sum = IntStream.of(nums).sum();
+
+### B20 
