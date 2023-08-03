@@ -105,4 +105,14 @@ Integer.parInt(String.valueOf(x))
 ### B17 整数对最小和
 - arrays数组用IntStream求和：int sum = IntStream.of(nums).sum();
 
-### B20 
+### B20 数大雁
+- switch-case的使用，带上default,break
+
+### B22 快速运输
+- 就贪婪算法
+
+### B25 乱序整数序列两书之和绝对值最小
+- 范围不大的都可以用暴力法直接出
+- TreeSet三特性：元素有序（遍历），无重复，无索引
+  所以需要排序，需要唯一，但又不需要对索引操作的时候很有用
+  
