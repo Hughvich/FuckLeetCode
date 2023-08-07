@@ -1,5 +1,11 @@
 package FkHzOD_B_old;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
 /**
  * B|27|喊七的次数重排|约瑟夫问题|100|
  * N个人围成一圈，顺时针从1到N编号，
@@ -22,6 +28,32 @@ package FkHzOD_B_old;
  * 说明：
  * 一共三次喊过，在7 14 17，按顺序编号2的人需要7 17，编号4的人遇到14
  *
+ * 思路：
+ * 直接遍历7出现的次数就行，以数组长度N为限，不用管数组顺序
  */
 public class B27喊7的次数重排 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        List<Integer> n = Arrays.stream(in.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        int N = n.size();
+        int sum = n.stream().mapToInt(integer -> integer).sum();
+        int i = 1; //循环索引
+        int numOf7 = 0; // 7出现的次数
+        int[] res = new int[N];
+        Arrays.stream(res).forEach(j -> j = 0);
+
+        while (numOf7 < sum) {
+//            System.out.println("------ i= " + i);
+            if (i % 7 == 0 || String.valueOf(i).contains("7") ) {
+                numOf7++;
+//                System.out.println("numOf7: " + numOf7);
+                res[i % N - 1]++;
+//                System.out.println(Arrays.toString(res));
+            }
+            i++;
+        }
+        for (int k = 0; k < N; k++) {
+            System.out.print(res[k] + " ");
+        }
+    }
 }

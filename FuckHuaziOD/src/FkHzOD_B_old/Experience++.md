@@ -116,3 +116,22 @@ Integer.parInt(String.valueOf(x))
 - TreeSet三特性：元素有序（遍历），无重复，无索引
   所以需要排序，需要唯一，但又不需要对索引操作的时候很有用
   
+### B27 喊7的次数重排
+- 对数组遍历， Arrays.stream(res).forEach()
+- String的contains用法，对于一串数字 i，String.valueOf(i).contains("7")
+
+### B33 最长子字符串的长度
+（没有技术点）
+
+### B35 快速人名查找
+- ****转为String的List的另一种方法：List<String> list = Arrays.asList(in.nextLine().split(","));
+- 不不不，直接in.nextLine().split(",");
+
+### B36 寻找相同子串
+- 一个字串中找一个子串，只需要boolean str.startsWith(p, i)
+- p是要找的子串，i是索引
+- 实际上是查找是否以某个prefix前缀开始，只不过i是开始的位置，如果用循环就可以一位一位找子串
+
+### B38 计算最大乘积
+- 比较两个字符串公共部分，直接暴力
+
