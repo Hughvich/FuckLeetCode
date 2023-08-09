@@ -1,5 +1,8 @@
 package FkHzOD_B_old;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -40,16 +43,46 @@ import java.util.Scanner;
  * 思路：
  * 难点：需要一个变量，找到GMT字符之前，保存数字的大小，然后排序
  * 用二维数组，保存索引+容量
- * HashMap
+ * HashMap？
  */
 public class B39磁盘容量排序 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        String[] ip = new String[n];
-        for (int i = 0; i < n; i++) {
-            ip[i] = in.nextLine();
-        }
+        in.nextLine(); //没有这一行会在接收倒数第一个输入时结束（？）
 
+        // 索引-磁盘容量  二维数组，用于计算排序
+        int[][] disk = new int[n][2];
+        // 索引-磁盘容量+单位 键值对map，用于最后的结果输出
+        Map<Integer, String> map = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            // 容量：各单位下数字的总和sum
+            int sum = 0;
+            int index = -1;
+            String str = in.nextLine();
+            map.put(i + 1, str); //第i + 1块磁盘
+            for (int j = 0; j < str.length(); j++) {
+                //第一次从0到j（不含），第二次j + 1开始，新j会找到下一个字母
+                if(str.charAt(j) == 'M') {
+                    sum += Integer.parseInt(str.substring(index + 1, j));
+                    index = j;
+                } else if (str.charAt(j) == 'G') {
+                    sum += Integer.parseInt(str.substring(index + 1, j)) * 1024;
+                    index = j;
+                } else if (str.charAt(j) == 'T') {
+                    sum += Integer.parseInt(str.substring(index + 1, j)) * 1024 * 1024;
+                    index = j;
+                }
+            }
+
+            disk[i][0] = i + 1;
+            disk[i][1] = sum;
+        }
+        // 遍历二维数组，排序输出，第一顺序：磁盘容量，第二顺序：自然顺序
+        Arrays.sort(disk, ((o1, o2) -> o1[1] != o2[1] ? o1[1] - o2[1] : o1[0] -o2[0]));
+        for (int i = 0; i < n; i++) {
+                System.out.println(map.get(disk[i][0]));
+        }
     }
 }
