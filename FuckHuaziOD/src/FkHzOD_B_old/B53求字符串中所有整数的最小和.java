@@ -23,9 +23,38 @@ import java.util.Scanner;
  * 负数：从前往后遍历一直到非数字
  * 正数：直接取个位数，打断和后面的数字连接
  *
+ * 23fjjx0-134jc-ver3-44ka-1
+ *
  */
 public class B53求字符串中所有整数的最小和 {
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String ip = in.nextLine();
+        char[] chars = ip.toCharArray();
+        int sum = 0;
+
+        for (int i = 0; i < chars.length; i++) {
+            char ch = chars[i];
+            if (ch == '-') {
+                i++; //i的后一位开始，负数第一位
+                int start = i;
+                while (i < chars.length && Character.isDigit(chars[i]))
+                    i++;
+                // 以上while循环完就找到了结束的索引i
+                String substring = ip.substring(start, i);
+                if (substring.length() > 0)
+                    // -=即变负数
+                    sum -= Integer.parseInt(substring);
+                i--; // 复原i
+            }
+            // 正数直接取数字
+            if (Character.isDigit(ch))
+                sum += Character.digit(ch, 10); //radix表示进制
+        }
+        System.out.println(sum);
+    }
+}
+/* ***以下是失败的方法
         Scanner in = new Scanner(System.in);
         String ip = in.nextLine();
         StringBuilder negative = new StringBuilder();
@@ -56,5 +85,4 @@ public class B53求字符串中所有整数的最小和 {
         }
         int sum = Arrays.stream(postive).sum();
         System.out.println(sum + ngtv);
-    }
-}
+ */

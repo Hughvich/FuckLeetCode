@@ -146,4 +146,29 @@ Integer.parInt(String.valueOf(x))
 - 金字塔数 - 递归函数
 
 ### B53 求字符串中所有整数的最小和
-- Character.isDigit()
+- 对于字符串处理，前后需要比较字符的，最好是string.toCharArray()
+- Character.isDigit()判断一个char是否是数字
+- Character.digit(i, radix) 将char转为int数字，radix是进制，满进制数返回-1
+
+### B85 最远足迹
+- 截取字符串中间的一段，用charArray，找到标志char比较，再记开始位结束位，把原str直接substring掉再转成数字什么的
+
+### B86 运维日志排序
+- 用于排序的，：：用法，类名::构造方法
+time.sort(Comparator.comparingLong(B86运维日志排序::getTime));
+  ![img.png](img.png)
+  
+### B87 观看文艺汇演问题
+- 简单
+### B88 任务总执行时长
+- 简单
+### B89 水仙花数
+```
+  int i = sum % 10; // 获得个位
+  int j = sum / 10 % 10; // 获得十位
+  int k = sum / 100; // 获得百位
+```
+
+### B90 连续自然数之和表达整数
+
+
