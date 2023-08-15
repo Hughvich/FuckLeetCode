@@ -171,4 +171,44 @@ time.sort(Comparator.comparingLong(B86运维日志排序::getTime));
 
 ### B90 连续自然数之和表达整数
 
+---
 
+# 新B，2023Q2-3
+
+### B2 需要打开多少监视器
+- 二维数组模板
+```
+List<List<Integer>> lists = new ArrayList<>();
+for (int i = 0; i < m; i++) {
+    lists.add(Arrays.stream(in.nextLine().split(" "))
+            .map(Integer::parseInt).collect(Collectors.toList()));
+}
+```
+
+### B5 选修课
+- Student类，实现Comparable接口，重写CompareTo方法，分数不同按分数降序，分数相同按照id升序，this在前o在后是升序
+- map方法，putIfAbsent，如果没有key，就把value塞进去
+- map方法，computeIfAbsent，如果没有key，就把函数塞进去
+
+### B6 五子棋迷
+- 双指针法，滑动窗口：![img_1.png](img_1.png)
+- 长度未知单行输入用Arrays.stream():  
+  int[] nums = Arrays.stream(in.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+  
+### B7 代表团坐车
+- 动态规划
+  
+- ![img_2.png](img_2.png)
+- ![img_3.png](img_3.png)
+
+
+
+### B10 寻找最大价值的矿堆 
+- DFS图，模板***
+- 一行无限长度可以in.nextLine()一行进行split操作，  
+无限行如何操作？只能知道最大容量后直接设置最大值
+
+### B11 最长公共后缀
+- 输入包含其他字符，需要被替换掉，如["abc" "bbc" "c"]，用str.replace("[","").replace("\"","")
+
+  
