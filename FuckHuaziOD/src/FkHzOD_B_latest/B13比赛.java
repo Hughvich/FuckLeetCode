@@ -1,9 +1,6 @@
 package FkHzOD_B_latest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -72,29 +69,85 @@ public class B13比赛 {
             System.out.println(-1);
             return;
         }
-        List<List<Integer>> lists = new ArrayList<>();
-        int[] score = new int[n];
-        int[] player = new int[n];
+        int[][] scoreLists = new int[m][n];
+        int[] scoreTotal = new int[n];
         for (int i = 0; i < m; i++) {
-            List<Integer> list = Arrays.stream(in.nextLine().split(","))
-                    .map(Integer::parseInt).collect(Collectors.toList());
-            list.forEach(integer -> {
-                if (integer < 1 || integer > 10){
+            int[] list = Arrays.stream(in.nextLine().split(","))
+                    .mapToInt(Integer::parseInt).toArray();
+            for (int j = 0; j < n; j++) {
+                scoreLists[i][j] = list[j];
+                scoreTotal[j] += list[j];
+                if (scoreLists[i][j] < 1 || scoreLists[i][j] > 10) {
                     System.out.println(-1);
                     return;
                 }
-            });
-            for (int j = 0; j < n; j++) {
-                score[j] += list.get(j);
-
             }
-            lists.add(list);
+        }
+        System.out.println(Arrays.toString(scoreTotal));
+
+        //添加选手列表，scores是每个人的评分列表，先n.fori后m.forj，转置遍历add(scoreLists[j][i]),将原二维scoreLists抽出给Player对象
+        ArrayList<Player> playerList = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            List<Integer> scores = new ArrayList<>();
+            for (int j = 0; j < m; j++) {
+                scores.add(scoreLists[j][i]);
+            }
+            playerList.add(new Player(i, scoreTotal[i], scores));
         }
 
-        System.out.println(Arrays.toString(player));
-        Arrays.sort(score);
-        int first = score[score.length - 1];
-        int second = score[score.length - 2];
-        int third = score[score.length - 3];
+//        playerList.forEach(System.out::println);
+
+        Collections.sort(playerList, (o1, o2) -> {
+            // 比较总分，不等则降序
+            if (o1.total != o2.total)
+                return o2.total - o1.total;
+            else {
+                List<Integer> o1Scores = o1.scores;
+                List<Integer> o2Scores = o2.scores;
+                // 如果总分相同，两个列表进行比较从10到1的分数的个数
+                for (int i = 10; i > 0; i--) {
+                    int res1 = 0;
+                    int res2 = 0;
+                    for (int k = 0; k < o1Scores.size(); k++) {
+                        if (o1Scores.get(k) == i)
+                            res1++;
+                        if (o2Scores.get(k) == i)
+                            res2++;
+                    }
+                    if (res1 < res2)
+                        return res1 - res2;
+                }
+            }
+            return 0;
+        });
+
+        // 最后输出答案
+        for (int i = 0; i < 3; i++) {
+            if (i == 2)
+                System.out.print(playerList.get(i).idx + 1);
+            else
+                System.out.print(playerList.get(i).idx + 1 + ",");
+        }
+    }
+
+    public static class Player {
+        int idx;
+        int total;
+        List<Integer> scores;
+
+        public Player(int idx, int total, List<Integer> scores) {
+            this.idx = idx;
+            this.total = total;
+            this.scores = scores;
+        }
+
+        @Override
+        public String toString() {
+            return "Player{" +
+                    "idx=" + idx +
+                    ", total=" + total +
+                    ", scores=" + scores +
+                    '}';
+        }
     }
 }

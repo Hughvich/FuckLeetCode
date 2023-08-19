@@ -156,7 +156,7 @@ Integer.parInt(String.valueOf(x))
 ### B86 运维日志排序
 - 用于排序的，：：用法，类名::构造方法
 time.sort(Comparator.comparingLong(B86运维日志排序::getTime));
-  ![img.png](img.png)
+  ![img.png](FkHzOD_B_old/img.png)
   
 ### B87 观看文艺汇演问题
 - 简单
@@ -170,6 +170,14 @@ time.sort(Comparator.comparingLong(B86运维日志排序::getTime));
 ```
 
 ### B90 连续自然数之和表达整数
+
+### B95 字符串中找出连续最长的数字串
+- 正则表达式匹配，
+```
+Pattern pattern = Pattern.compile("a");
+Matcher matcher = pattern.matcher(str);
+while (matcher.find()) {...
+```
 
 ---
 
@@ -191,24 +199,75 @@ for (int i = 0; i < m; i++) {
 - map方法，computeIfAbsent，如果没有key，就把函数塞进去
 
 ### B6 五子棋迷
-- 双指针法，滑动窗口：![img_1.png](img_1.png)
+- 双指针法，滑动窗口：![img_1.png](FkHzOD_B_old/img_1.png)
 - 长度未知单行输入用Arrays.stream():  
   int[] nums = Arrays.stream(in.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
   
 ### B7 代表团坐车
 - 动态规划
   
-- ![img_2.png](img_2.png)
-- ![img_3.png](img_3.png)
+- ![img_2.png](FkHzOD_B_old/img_2.png)
+- ![img_3.png](FkHzOD_B_old/img_3.png)
 
 
 
 ### B10 寻找最大价值的矿堆 
 - DFS图，模板***
 - 一行无限长度可以in.nextLine()一行进行split操作，  
-无限行如何操作？只能知道最大容量后直接设置最大值
+无限行如何操作？最大容量后直接设置最大值,或者
+```
+while (in.hasNextLine()) {
+      String ip = in.nextLine();
+      if (ip.isEmpty()) break;
+```
 
 ### B11 最长公共后缀
 - 输入包含其他字符，需要被替换掉，如["abc" "bbc" "c"]，用str.replace("[","").replace("\"","")
+- 
 
+### B13 比赛
+- 二维矩阵转置：
+```
+// 转置二维矩阵,j到i只遍历一半，
+for (int i = 0; i < a.length; i++) {
+    for (int j = 0; j <= i; j++) {
+        int temp = a[i][j];
+        a[i][j] = a[j][i];
+        a[j][i] = temp;
+    }
+}
+```
+- 如果想直接把m行n列输入的转置成n行m列，只需n.fori{m.forj list[j][i] = ...}}
+
+- 比较规则重写：Collections.sort(playerList, (o1, o2) -> {。。。});
+
+### B16 字符串摘要
+- map按照value排序，可以转换为List<Map.Entry<>> list再List.sort((o1, o2) -> o2.getValue() - o1.getValue())
+- 或者list.sort(Comparator.comparingInt(Map.Entry::getValue));
+
+### B17 稀疏矩阵
+- 二维数组读入很简单，只要知道大小/最大范围，直接双层循环，mat[i][j] = in.nextInt();
+
+### B19 报文回路
+- Arrays.deepToString(nums)，二维数组/多维数组的全元素打印
+
+### B20 阿里巴巴找黄金宝箱II
+- HashSet，去重
+- LinkedHashSet，去重，保存原序
+- 
+
+### B28 数据分类
+- 位运算，将各位加起来
+  for (int i = 0; i < 4; i++) {
+  sum += (byte) (x >> (i * 8));
+  }
+- 一个int型，4字节32位的数字x，拆分成4个8位的数字再相加，即把数字x右移8位，和11111111(0xff) 与& 运算
+
+### B30 阿里巴巴找黄金宝箱V
+- 滑动窗口，最简单的
+
+### B31 比赛的冠亚季军
+- 涉及到多层，多参数，多维度，多...排序，要将对象实现Comparable<对象>接口：
+  public static class Athlete implements Comparable<Athlete>
   
+### B33 经典屏保
