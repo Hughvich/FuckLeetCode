@@ -26,6 +26,7 @@ public class test {
          */
 
         // 位运算
+        /*
         int sum = 0;
         int x = 259;
         for (int i = 0; i < 4; i++) {
@@ -35,6 +36,15 @@ public class test {
 
         System.out.println(256 >> 16);
 
+         */
+        //优先队列测试
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(5);
+        pq.add(3);
+        pq.add(1);
+        pq.add(2);
+        pq.add(7);
+        System.out.println(Arrays.toString(pq.toArray()));
 
     }
 

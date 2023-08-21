@@ -271,3 +271,6 @@ for (int i = 0; i < a.length; i++) {
   public static class Athlete implements Comparable<Athlete>
   
 ### B33 经典屏保
+
+### B41 人气最高的店铺
+- 用于记录key出现次数的map：shops.put(nums[0], shops.getOrDefault(nums[0], 0) + 1);
