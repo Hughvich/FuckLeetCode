@@ -173,6 +173,24 @@ time.sort(Comparator.comparingLong(B86运维日志排序::getTime));
 
 ### B95 字符串中找出连续最长的数字串
 - 正则表达式匹配，
+- 字母数字空格直接匹配自身，
+- 点号，.：匹配任意字符（除了换行符）。  
+  星号，*：匹配前面的模式零次或多次。  
+  加号，+：匹配前面的模式一次或多次。  
+  问号，?：匹配前面的模式零次或一次。  
+- {n}：匹配前面的模式恰好 n 次。  
+  {n,}：匹配前面的模式至少 n 次。  
+  {n,m}：匹配前面的模式至少 n 次且不超过 m 次。
+- [ ]：匹配括号内的任意一个字符。例如，[abc] 匹配字符 "a"、"b" 或 "c"。  
+  [^ ]：匹配除了括号内的字符以外的任意一个字符。例如，[^abc] 匹配除了字符 "a"、"b" 或 "c" 以外的任意字符。
+- ^：匹配字符串的开头。  
+  $：匹配字符串的结尾。  
+  \b：匹配单词边界。  
+  \B：匹配非单词边界。
+- $1： 正则表达式中第一个子表达式
+- .*贪婪，匹配到不能匹配为止，根据后面的正则进行回溯；
+- .*?非贪婪，匹配一个后继续进行，不回溯
+
 ```
 Pattern pattern = Pattern.compile("a");
 Matcher matcher = pattern.matcher(str);
@@ -274,3 +292,29 @@ for (int i = 0; i < a.length; i++) {
 
 ### B41 人气最高的店铺
 - 用于记录key出现次数的map：shops.put(nums[0], shops.getOrDefault(nums[0], 0) + 1);
+
+### B48 拔河比赛
+- 典型的用xx类实现Comparable的排序
+
+### B66 冠亚军排名
+- 自定义排序，按照金银铜牌数
+```
+Arrays.sort(countries, new Comparator<String[]>() {
+  @Override
+  public int compare(String[] o1, String[] o2) {
+    if(o1[1].equals(o2[1]) {
+        if (o1[2].equals(o2[2]))
+          return Int.par(o2[3]) - ...
+         else return Int.par(o2[2]) - ...
+    } else return return Int.par(o2[1]) - ...
+  }
+}
+```  
+
+### B78 查字典
+- 同一行字符串，以空格分隔，可以每次用in.next()输入一个
+
+### B80 
+- 字符串自定义排序，拼接后排序，如输入21，30，比较2130和3021的大小，就用compareTo():
+- Arrays.sort(str, ((o1, o2) -> (o1 + o2).compareTo(o1 + o2)));
+

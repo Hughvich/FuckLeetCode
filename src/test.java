@@ -38,6 +38,7 @@ public class test {
 
          */
         //优先队列测试
+        /*
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         pq.add(5);
         pq.add(3);
@@ -46,6 +47,16 @@ public class test {
         pq.add(7);
         System.out.println(Arrays.toString(pq.toArray()));
 
+         */
+
+        List<String> n = new ArrayList<>();
+        n.add("a");
+        n.add("b");
+        n.add("c");
+        n.add("d");
+        n.add("e");
+        Collections.reverse(n);
+        System.out.println(n);
     }
 
 }
