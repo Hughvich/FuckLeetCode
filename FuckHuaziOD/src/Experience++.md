@@ -197,6 +197,9 @@ Matcher matcher = pattern.matcher(str);
 while (matcher.find()) {...
 ```
 
+### B96 We Are A Team
+- Union Find UF 并查集，模板
+
 ---
 
 # 新B，2023Q2-3
@@ -290,8 +293,15 @@ for (int i = 0; i < a.length; i++) {
   
 ### B33 经典屏保
 
+### B38 支持优先级的队列
+- PriorityQueue使用方法：  
+  .poll()，.peek()取出优先级最高的，最靠前的
+
 ### B41 人气最高的店铺
 - 用于记录key出现次数的map：shops.put(nums[0], shops.getOrDefault(nums[0], 0) + 1);
+
+### B42 战场索敌
+- 典型DFS，模板
 
 ### B48 拔河比赛
 - 典型的用xx类实现Comparable的排序
@@ -314,7 +324,12 @@ Arrays.sort(countries, new Comparator<String[]>() {
 ### B78 查字典
 - 同一行字符串，以空格分隔，可以每次用in.next()输入一个
 
-### B80 
+### B80 最小数字
 - 字符串自定义排序，拼接后排序，如输入21，30，比较2130和3021的大小，就用compareTo():
 - Arrays.sort(str, ((o1, o2) -> (o1 + o2).compareTo(o1 + o2)));
+
+### B89 整数编码
+- 二进制 ，十六进制转换：
+- 十转二：String binary = Integer.toBinaryString(num);
+- 二转十六：String hex = Integer.toHexString(Integer.parseInt(bin, 2));
 
