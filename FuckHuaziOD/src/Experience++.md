@@ -195,6 +195,9 @@ time.sort(Comparator.comparingLong(B86运维日志排序::getTime));
 Pattern pattern = Pattern.compile("a");
 Matcher matcher = pattern.matcher(str);
 while (matcher.find()) {...
+
+// 需要返回内容：
+matcher.group();
 ```
 
 ### B96 We Are A Team
@@ -247,9 +250,9 @@ while (in.hasNextLine()) {
 - 
 
 ### B13 比赛
-- 二维矩阵转置：
+- 二维矩阵转置：j到i 只遍历一半
 ```
-// 转置二维矩阵,j到i只遍历一半，
+// 转置二维矩阵,j到i 只遍历一半，
 for (int i = 0; i < a.length; i++) {
     for (int j = 0; j <= i; j++) {
         int temp = a[i][j];
@@ -332,4 +335,28 @@ Arrays.sort(countries, new Comparator<String[]>() {
 - 二进制 ，十六进制转换：
 - 十转二：String binary = Integer.toBinaryString(num);
 - 二转十六：String hex = Integer.toHexString(Integer.parseInt(bin, 2));
+
+### LC605 种花问题
+- 不相邻座位问题，
+* 每三个0就可以种一个，不管前后
+* 在首尾补0，“防御型编程思想”
+
+### LC1071 字符串的最大公因子
+```
+//GCD欧几里得最大公因数算法
+int x = 6;
+int y = 3;
+while (y != 0) {
+int tmp = x % y;
+x = y;
+y = tmp;
+}
+System.out.println(x);
+```
+
+### LC345 反转字符串中的元音字母
+- 将String中的指定位置字符替换，用stringBuilder.replace(start, end, string)
+
+### LC151 反转字符串中的单词
+- 反转字符串列表：使用栈，逆序遍历，头尾交换
 

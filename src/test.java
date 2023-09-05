@@ -47,16 +47,30 @@ public class test {
         pq.add(7);
         System.out.println(Arrays.toString(pq.toArray()));
 
+        System.out.println(n);
+        */
+
+        //GCD欧几里得最大公因数算法
+        /*
+        int x = 6;
+        int y = 3;
+        while (y != 0) {
+            int tmp = x % y;
+            x = y;
+            y = tmp;
+        }
+        System.out.println(x);
+
+        System.out.println("ABCDEF".substring(3));
+
          */
 
-        List<String> n = new ArrayList<>();
-        n.add("a");
-        n.add("b");
-        n.add("c");
-        n.add("d");
-        n.add("e");
-        Collections.reverse(n);
-        System.out.println(n);
+        List<Integer> numList = List.of( 20, 100, 10, 12, 5, 13);
+        List<Integer> subList1 = numList.subList(0, 2);
+        List<Integer> subList2 = numList.subList(3, 6);
+        System.out.println(subList1);
+        System.out.println(subList2);
+
     }
 
 }
