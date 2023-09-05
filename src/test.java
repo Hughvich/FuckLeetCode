@@ -65,11 +65,29 @@ public class test {
 
          */
 
-        List<Integer> numList = List.of( 20, 100, 10, 12, 5, 13);
-        List<Integer> subList1 = numList.subList(0, 2);
-        List<Integer> subList2 = numList.subList(3, 6);
-        System.out.println(subList1);
-        System.out.println(subList2);
+        List<Integer> numList = new ArrayList<>();
+        numList.add(20);
+        numList.add(100);
+        numList.add(10);
+        numList.add(12);
+        numList.add(5);
+        numList.add(13);
+        for (int i = 1; i < numList.size() - 1; i++) {
+            List<Integer> subList1 = numList.subList(0, i);
+            List<Integer> subList2 = numList.subList(i + 1, numList.size());
+//            subList1.sort(Comparator.comparingInt(o -> o));
+//            subList2.sort((o1, o2) -> o2 - o1);
+//            System.out.println(subList1 + " " + subList2);
+//            System.out.println(subList2);
+        }
+            /*
+            20,100,10,12,5,13
+            [20] [13, 12, 10, 5]
+            [20, 100] [12, 10, 5]
+            [13, 20, 100] [10, 5]
+            [12, 13, 20, 100] [5]
+             */
+
 
     }
 
