@@ -65,6 +65,7 @@ public class test {
 
          */
 
+        /*
         List<Integer> numList = new ArrayList<>();
         numList.add(20);
         numList.add(100);
@@ -80,15 +81,33 @@ public class test {
 //            System.out.println(subList1 + " " + subList2);
 //            System.out.println(subList2);
         }
-            /*
+
             20,100,10,12,5,13
             [20] [13, 12, 10, 5]
             [20, 100] [12, 10, 5]
             [13, 20, 100] [10, 5]
             [12, 13, 20, 100] [5]
-             */
+        */
 
+        int[] nums = {1,2,2,3,5,7};
+        System.out.println(remove(nums, 2));
 
+        System.out.println(Arrays.toString((nums)));
     }
+
+    public static int remove(int[] nums, int val) {
+        int n = nums.length;
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+        }
+        return slow;
+    }
+
+
+
 
 }

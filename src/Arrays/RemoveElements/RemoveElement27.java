@@ -19,13 +19,13 @@ public class RemoveElement27 {
      * 数组的元素在内存地址中是连续的，不能单独删除数组中的某个元素，只能覆盖。
      */
 
-    //暴力解法
+    //暴力解法：遇到目标元素直接for整体前移
     public static int removeElement(int[] nums, int val) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
             if (nums[i] == val) {
                 for (int j = i + 1; j < n; j++) {
-                    nums[j - 1] = nums[j];
+                    nums[j - 1] = nums[j]; // 注意边界溢出问题
                 }
                 i--;
                 n--;
@@ -34,7 +34,7 @@ public class RemoveElement27 {
         return n;
     }
 
-    //快慢双指针解法
+    //快慢双指针解法：slow是坑，fast是找萝卜，只把不是目标的萝卜填坑，通过覆盖来删除
     public static int removeElement2Pointers(int[] nums, int val) {
         int slowI = 0;
         for (int fastI = 0; fastI < nums.length; fastI++) {
