@@ -89,25 +89,23 @@ public class test {
             [12, 13, 20, 100] [5]
         */
 
-        int[] nums = {1,2,2,3,5,7};
-        System.out.println(remove(nums, 2));
+       Method(3);
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+        System.out.println(linkedList.peek());
 
-        System.out.println(Arrays.toString((nums)));
     }
 
-    public static int remove(int[] nums, int val) {
-        int n = nums.length;
-        int slow = 0;
-        for (int fast = 0; fast < nums.length; fast++) {
-            if (nums[fast] != val) {
-                nums[slow] = nums[fast];
-                slow++;
-            }
-        }
-        return slow;
+    public static LinkedList<Integer> Method (int n) {
+
+
+        return null;
     }
 
 
 
 
 }
+
